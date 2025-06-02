@@ -1,0 +1,40 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #343a40;
+    padding: 1rem 2rem;
+    color: white;
+  }
+  
+  .nav-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .nav-links li, .nav-links button {
+    color: white;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .nav-links a:hover, .nav-links button:hover {
+    text-decoration: underline;
+  }
+  
