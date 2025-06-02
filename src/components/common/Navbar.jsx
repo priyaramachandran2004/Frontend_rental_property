@@ -6,7 +6,7 @@ import './Navbar.css';
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <div className="nav-logo">🏠 Rental Managerment</div>
+      <div className="nav-logo">🏠 Rental Management</div>
       <ul className="nav-links">
         <li><Link to="/"><FaHome /> Home</Link></li>
         <li><Link to="/about"><FaInfoCircle /> About</Link></li>
