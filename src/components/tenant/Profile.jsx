@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import { FaEdit, FaKey, FaSave, FaTimes } from "react-icons/fa";
 const Profile = ({ tenantId }) => {
   const [tenant, setTenant] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
@@ -80,97 +80,133 @@ const Profile = ({ tenantId }) => {
   };
 
   return (
-    <div className="profile">
-      <h3>Tenant Profile</h3>
+    <div className="profile-container">
+      <div className="profile-header">
+        <h2>My Profile</h2>
+      </div>
+
       {tenant ? (
-        <div>
-          {isEditing ? (
-            <div>
-              <label>
-                Name:{" "}
-                <input
-                  type="text"
-                  name="name"
-                  value={editData.name}
-                  onChange={handleEditChange}
-                />
-              </label>
-              <label>
-                Email:{" "}
-                <input
-                  type="email"
-                  name="email"
-                  value={editData.email}
-                  onChange={handleEditChange}
-                />
-              </label>
-              <label>
-                Phone:{" "}
-                <input
-                  type="text"
-                  name="phone"
-                  value={editData.phone}
-                  onChange={handleEditChange}
-                />
-              </label>
-              <button onClick={handleEditSubmit}>Save</button>
-              <button onClick={handleEditToggle}>Cancel</button>
+        <div className="profile-content">
+          <div className="profile-section">
+            <div className="profile-info">
+              {isEditing ? (
+                <div className="edit-form">
+                  <div className="form-group">
+                    <label>Name:</label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={editData.name}
+                      onChange={handleEditChange}
+                      className="form-input"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label>Email:</label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={editData.email}
+                      onChange={handleEditChange}
+                      className="form-input"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label>Phone:</label>
+                    <input
+                      type="text"
+                      name="phone"
+                      value={editData.phone}
+                      onChange={handleEditChange}
+                      className="form-input"
+                    />
+                  </div>
+                  <div className="button-group">
+                    <button onClick={handleEditSubmit} className="save-btn">
+                      <FaSave /> Save
+                    </button>
+                    <button onClick={handleEditToggle} className="cancel-btn">
+                      <FaTimes /> Cancel
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div className="info-display">
+                  <div className="info-item">
+                    <span className="info-label">Name</span>
+                    <span className="info-value">{tenant.name}</span>
+                  </div>
+                  <div className="info-item">
+                    <span className="info-label">Email</span>
+                    <span className="info-value">{tenant.email}</span>
+                  </div>
+                  <div className="info-item">
+                    <span className="info-label">Phone</span>
+                    <span className="info-value">{tenant.phone}</span>
+                  </div>
+                  <button onClick={handleEditToggle} className="edit-btn">
+                    <FaEdit /> Edit Profile
+                  </button>
+                </div>
+              )}
             </div>
-          ) : (
-            <div>
-              <p>
-                <strong>Name:</strong> {tenant.name}
-              </p>
-              <p>
-                <strong>Email:</strong> {tenant.email}
-              </p>
-              <p>
-                <strong>Phone:</strong> {tenant.phone}
-              </p>
-              <button onClick={handleEditToggle}>Edit</button>
+
+            <div className="password-section">
+              <h3>Security Settings</h3>
+              {isChangingPassword ? (
+                <div className="password-form">
+                  <div className="form-group">
+                    <label>Current Password:</label>
+                    <input
+                      type="password"
+                      name="oldPassword"
+                      value={passwordChange.oldPassword}
+                      onChange={handlePasswordChange}
+                      className="form-input"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label>New Password:</label>
+                    <input
+                      type="password"
+                      name="newPassword"
+                      value={passwordChange.newPassword}
+                      onChange={handlePasswordChange}
+                      className="form-input"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label>Confirm Password:</label>
+                    <input
+                      type="password"
+                      name="confirmPassword"
+                      value={passwordChange.confirmPassword}
+                      onChange={handlePasswordChange}
+                      className="form-input"
+                    />
+                  </div>
+                  <div className="button-group">
+                    <button onClick={handlePasswordSubmit} className="save-btn">
+                      <FaSave /> Update Password
+                    </button>
+                    <button onClick={handlePasswordToggle} className="cancel-btn">
+                      <FaTimes /> Cancel
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <button onClick={handlePasswordToggle} className="change-password-btn">
+                  <FaKey /> Change Password
+                </button>
+              )}
             </div>
-          )}
-          <div className="password-change">
-            <h4>Change Password</h4>
-            {isChangingPassword ? (
-              <div>
-                <label>
-                  Old Password:{" "}
-                  <input
-                    type="password"
-                    name="oldPassword"
-                    value={passwordChange.oldPassword}
-                    onChange={handlePasswordChange}
-                  />
-                </label>
-                <label>
-                  New Password:{" "}
-                  <input
-                    type="password"
-                    name="newPassword"
-                    value={passwordChange.newPassword}
-                    onChange={handlePasswordChange}
-                  />
-                </label>
-                <label>
-                  Confirm Password:{" "}
-                  <input
-                    type="password"
-                    name="confirmPassword"
-                    value={passwordChange.confirmPassword}
-                    onChange={handlePasswordChange}
-                  />
-                </label>
-                <button onClick={handlePasswordSubmit}>Save Password</button>
-                <button onClick={handlePasswordToggle}>Cancel</button>
-              </div>
-            ) : (
-              <button onClick={handlePasswordToggle}>Change Password</button>
-            )}
           </div>
         </div>
       ) : (
-        <p>Loading...</p>
+        <div className="loading">
+          <div className="loader"></div>
+          <p>Loading profile...</p>
+        </div>
       )}
     </div>
   );
