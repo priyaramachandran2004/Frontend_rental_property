@@ -32,7 +32,7 @@ const DownloadReceipt = ({ leaseId, totalAmount, paymentMode, owner, tenant, pro
     link.click();
 
     // Redirect to TenantDashboard after downloading the receipt
-    navigate(`/tenant-dashboard/${tenant.tenantId}`);
+    navigate(`/tenant-dashboard`);
   };
 
   return (

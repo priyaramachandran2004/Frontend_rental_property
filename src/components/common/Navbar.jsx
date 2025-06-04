@@ -1,42 +1,59 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { FaHome, FaInfoCircle, FaSignInAlt, FaBars, FaTimes } from 'react-icons/fa';
 import './Navbar.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const closeMenu = () => setIsOpen(false);
 
   return (
-    <nav className="navbar">
-      <div className="nav-logo">
-        <Link to="/">🏠 Rental Management</Link>
-      </div>
-      
-      <div className="menu-icon" onClick={toggleMenu}>
-        {isOpen ? <FaTimes /> : <FaBars />}
-      </div>
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+      <div className="navbar-container">
+        <Link to="/" className="nav-logo" onClick={closeMenu}>
+          🏠 <span className="logo-text">Rental Management</span>
+        </Link>
 
-      <ul className={`nav-links ${isOpen ? 'active' : ''}`}>
-        <li>
-          <Link to="/" onClick={() => setIsOpen(false)}>
+        <div className="nav-toggle" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <FaTimes /> : <FaBars />}
+        </div>
+
+        <div className={`nav-menu ${isOpen ? 'active' : ''}`}>
+          <Link 
+            to="/" 
+            className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}
+            onClick={closeMenu}
+          >
             <FaHome /> <span>Home</span>
           </Link>
-        </li>
-        <li>
-          <Link to="/about" onClick={() => setIsOpen(false)}>
+          <Link 
+            to="/about" 
+            className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}
+            onClick={closeMenu}
+          >
             <FaInfoCircle /> <span>About</span>
           </Link>
-        </li>
-        <li>
-          <Link to="/auth" onClick={() => setIsOpen(false)}>
+          <Link 
+            to="/auth" 
+            className={`nav-link ${location.pathname === '/auth' ? 'active' : ''}`}
+            onClick={closeMenu}
+          >
             <FaSignInAlt /> <span>Login / Signup</span>
           </Link>
-        </li>
-      </ul>
+        </div>
+      </div>
     </nav>
   );
 };
