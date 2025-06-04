@@ -20,14 +20,17 @@ const SignUpPage = ({ userType }) => {
       setError('Password must be at least 8 characters long and include uppercase, lowercase, number, and special character.');
       return;
     }
-
+ 
     const endpoint = userType === 'Owner' ? 'http://localhost:8082/api/owners' : 'http://localhost:8083/api/tenants';
-
+ 
     try {
-      await axios.post(endpoint, formData);
+      await axios.post(endpoint, formData, {
+        headers: { "Content-Type": "application/json" }
+      });
+ 
       alert(`${userType} registered successfully`);
     } catch (err) {
-      setError('Registration failed');
+      setError('user alredy exists'); // Show proper error message
     }
   };
 

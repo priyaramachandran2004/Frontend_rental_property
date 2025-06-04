@@ -1,0 +1,68 @@
+.styled-container {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.styled-card {
+  width: 350px; /* Fixed width for all cards */
+  height: 400px; /* Fixed height for all cards */
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+  display: flex;
+  flex-direction: column; /* Stack image, content, and button vertically */
+  justify-content: space-between; /* Ensure content is spaced properly */
+  overflow: hidden; /* Prevent content overflow */
+}
+
+.styled-card:hover {
+  transform: scale(1.05);
+}
+
+.image-container {
+  width: 100%; /* Full width of the card */
+  height: 150px; /* Fixed height for the image section */
+  overflow: hidden; /* Ensure the image doesn't overflow */
+}
+
+.property-photo {
+  width: 100%; /* Make the image fit the container width */
+  height: 100%; /* Make the image fit the container height */
+  object-fit: cover; /* Ensure the image is properly cropped */
+}
+
+.content-container {
+  width: 100%; /* Full width of the card */
+  flex-grow: 1; /* Allow content to take up remaining space */
+  padding: 15px; /* Add padding for the content */
+  text-align: left; /* Align text to the left */
+  overflow-y: auto; /* Add vertical scrolling if content overflows */
+}
+
+.property-title {
+  white-space: normal; /* Allow text wrapping */
+  overflow: visible; /* Ensure text is fully visible */
+  text-overflow: unset; /* Remove ellipsis */
+}
+
+.button-container {
+  width: 100%; /* Full width of the card */
+  text-align: center; /* Center the button horizontally */
+  padding: 10px; /* Add padding for spacing */
+}
+
+.buy-button {
+  width: 90%; /* Button width relative to the card */
+  background-color: #007bff; /* Button background color */
+  color: white; /* Button text color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px; /* Button padding */
+  text-align: center; /* Center text inside the button */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  font-size: 14px; /* Button font size */
+  bottom:20px;
+}
+
+.buy-button:hover {
+  background-color: #0056b3; /* Darker background on hover */
+}
