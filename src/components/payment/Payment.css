@@ -1,0 +1,120 @@
+.payment-form {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #1e1e2f; /* Dark background for the form */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+    border-radius: 12px;
+    font-family: "Arial", sans-serif;
+    color: #e0e0e0; /* Softer white for text */
+  }
+  
+  /* Heading */
+  .payment-form h4 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 26px;
+    margin-bottom: 25px;
+    font-weight: bold;
+    text-transform: uppercase; /* Add uppercase for emphasis */
+    letter-spacing: 1px; /* Add spacing for a clean look */
+  }
+  
+  /* Payment Details Section */
+  .payment-form div {
+    margin-bottom: 20px;
+  }
+  
+  .payment-form p,
+  .payment-form label {
+    color: #b0b0b0; /* Softer gray for text */
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  
+  /* Input Fields */
+  .payment-form input,
+  .payment-form select,
+  .payment-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: #2e2e40; /* Dark input background */
+    color: #ffffff; /* White text for inputs */
+    outline: none; /* Remove default outline */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .payment-form input:focus,
+  .payment-form select:focus,
+  .payment-form textarea:focus {
+    background-color: #3a3a4d; /* Slightly lighter background on focus */
+    box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5); /* Glow effect on focus */
+  }
+  
+  /* Submit Button */
+  .payment-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #5a5b7d; /* Button color */
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .payment-form button:hover {
+    background-color: #77789c; /* Lighter hover effect */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+  }
+  
+  /* Success Message */
+  .payment-success {
+    text-align: center;
+    color: #4caf50; /* Green for success */
+    font-size: 18px;
+    margin-top: 20px;
+  }
+  
+  /* Download Button */
+  .download-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff; /* Blue button for download */
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .download-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .payment-form {
+      padding: 20px;
+    }
+  
+    .payment-form h4 {
+      font-size: 22px;
+    }
+  
+    .payment-form button,
+    .download-button {
+      font-size: 14px;
+    }
+  }

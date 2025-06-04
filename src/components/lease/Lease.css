@@ -1,0 +1,118 @@
+.lease-form {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #1e1e2f; /* Darker background for a modern look */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+    border-radius: 12px;
+    font-family: "Arial", sans-serif;
+    color: #e0e0e0; /* Softer white for text */
+  }
+  
+  /* Heading */
+  .lease-form h4 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 26px;
+    margin-bottom: 25px;
+    font-weight: bold;
+    text-transform: uppercase; /* Add uppercase for emphasis */
+    letter-spacing: 1px; /* Add spacing for a clean look */
+  }
+  
+  /* Owner & Property Details */
+  .details-container {
+    background: #2a2a3d; /* Slightly lighter background for contrast */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    border: 1px solid #3a3a4d; /* Subtle border for separation */
+  }
+  
+  .details-container p {
+    color: #b0b0b0; /* Softer gray for text */
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  
+  /* Lease Form Inputs */
+  .lease-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Add spacing between inputs */
+  }
+  
+  .lease-form input,
+  .lease-form select,
+  .lease-form textarea {
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: #2e2e40; /* Dark input background */
+    color: #ffffff; /* White text for inputs */
+    outline: none; /* Remove default outline */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .lease-form input:focus,
+  .lease-form select:focus,
+  .lease-form textarea:focus {
+    background-color: #3a3a4d; /* Slightly lighter background on focus */
+    box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5); /* Glow effect on focus */
+  }
+  
+  /* Prevent rentAmount from being editable */
+  .lease-form input[readonly] {
+    background-color: #3a3a4d;
+    color: #b0b0b0;
+    cursor: not-allowed;
+  }
+  
+  /* Submit Button */
+  .lease-form button {
+    padding: 12px;
+    background-color: #5a5b7d; /* Button color */
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .lease-form button:hover {
+    background-color: #77789c; /* Lighter hover effect */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+  }
+  
+  /* Loader & Message */
+  .loader {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .message {
+    text-align: center;
+    color: #ff4747;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .lease-form {
+      padding: 20px;
+    }
+  
+    .lease-form h4 {
+      font-size: 22px;
+    }
+  
+    .lease-form button {
+      font-size: 14px;
+    }
+  }

@@ -9,7 +9,8 @@ import OwnerDashboard from './components/owner/OwnerDashboard';
 // import TenantDashboard from './components/tenant/TenantDashboard';
 // import NotFound from './pages/NotFound';
 import './App.css';
-
+import LeaseForm from './components/lease/LeaseForm';
+import Payment from './components/payment/Payment';
 const App = () => {
   return (
     <Router>
@@ -19,6 +20,8 @@ const App = () => {
   <Route path="/auth" element={<AuthPage />} />
 <Route path="/tenant-dashboard/:id" element={<TenantDashboard />} />
 <Route path="/owner-dashboard/:id" element={<OwnerDashboard />} />
+<Route path="/lease-form/:propertyId/:tenantId" element={<LeaseForm />} />
+<Route path="/payment/:leaseId" element={<Payment />} />
        {/*   <Route path="/tenant/dashboard" element={<TenantDashboard />} />
         <Route path="*" element={<NotFound />} /> */}
       </Routes>

@@ -27,8 +27,8 @@ const TenantDashboard = () => {
 
       <div className="content">
         {activeTab === "profile" && <Profile tenantId={id} />} {/* Pass tenant ID to Profile */}
-        {activeTab === "history" && <History />} {/* Show History when clicked */}
-        {activeTab === "properties" && <PropertyList />} {/* Show Properties by default and when clicked */}
+        {activeTab === "history" && <History  tenantId={id}/>} {/* Show History when clicked */}
+        {activeTab === "properties" && <PropertyList tenantId={id}/>} {/* Show Properties by default and when clicked */}
       </div>
     </div>
   );

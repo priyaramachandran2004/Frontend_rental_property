@@ -4,7 +4,7 @@ import { Typography, Card, Grid, CircularProgress, Button } from "@mui/material"
 import { useNavigate } from "react-router-dom"; // Import useNavigate for routing
 import "./Property.css"; // Import the CSS file
 
-function PropertyList() {
+function PropertyList({tenantId}) {
   const [properties, setProperties] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate(); // Initialize useNavigate
@@ -36,7 +36,7 @@ function PropertyList() {
   }, []);
 
   const handleBuyClick = (propertyId) => {
-    navigate(`/lease/${propertyId}`); // Navigate to the Lease component with the property ID
+    navigate(`/lease-form/${propertyId}/${tenantId}`); // Navigate to the Lease component with the property ID
   };
 
   return (
@@ -77,7 +77,7 @@ function PropertyList() {
                   <Button
                     variant="contained"
                     color="primary"
-                    onClick={() => handleBuyClick(property.id)} // Pass property ID to the Lease component
+                    onClick={() => handleBuyClick(property.propertyId)} // Pass property ID to the Lease component
                     className="buy-button"
                   >
                     Buy

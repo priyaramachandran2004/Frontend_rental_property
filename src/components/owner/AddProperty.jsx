@@ -49,14 +49,7 @@ const AddProperty = () => {
       {successMessage && <p className="success-message">{successMessage}</p>}
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Property Name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
+        
         <input
           type="text"
           name="address"

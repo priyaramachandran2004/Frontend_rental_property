@@ -1,0 +1,68 @@
+.history-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #1e1e2f; /* Dark background for the container */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+    border-radius: 12px;
+    font-family: "Arial", sans-serif;
+    color: #e0e0e0; /* Softer white for text */
+  }
+  
+  .history-title {
+    text-align: center;
+    color: #ffffff;
+    font-size: 26px;
+    margin-bottom: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .no-history {
+    text-align: center;
+    color: #b0b0b0;
+    font-size: 18px;
+  }
+  
+  .history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Add spacing between cards */
+  }
+  
+  .history-card {
+    background: #2a2a3d; /* Slightly lighter background for contrast */
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #3a3a4d; /* Subtle border for separation */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+  }
+  
+  .card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffffff;
+  }
+  
+  .history-card p {
+    color: #b0b0b0;
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .history-container {
+      padding: 15px;
+    }
+  
+    .history-title {
+      font-size: 22px;
+    }
+  
+    .history-card {
+      padding: 15px;
+    }
+  }
