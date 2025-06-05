@@ -81,10 +81,10 @@ button,
   width: 100%;
   padding: 0.6rem;
   border-radius: 6px;
-  font-size: 0.9rem;
   cursor: pointer;
   margin: 0.5rem 0;
   transition: all 0.3s ease;
+  
 }
 
 button,
@@ -92,6 +92,8 @@ button,
   background: #4a90e2;
   color: #ffffff;
   border: none;
+  justify-content: center;
+  
 }
 
 button:hover,
@@ -104,6 +106,7 @@ button:hover,
   color: #4a90e2;
   border: 1px solid #4a90e2;
   margin-top: 0.5rem;
+ 
 }
 
 .toggle-button:hover {

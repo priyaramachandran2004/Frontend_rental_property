@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+ 
 const SignUpPage = ({ userType }) => {
   const [formData, setFormData] = useState({
     name: '', email: '', phone: '', password: ''
   });
   const [error, setError] = useState('');
-
+ 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
+ 
   const validatePassword = (password) => {
     return /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password);
   };
-
+ 
   const handleSignup = async () => {
     if (!validatePassword(formData.password)) {
       setError('Password must be at least 8 characters long and include uppercase, lowercase, number, and special character.');
@@ -33,7 +33,7 @@ const SignUpPage = ({ userType }) => {
       setError('user alredy exists'); // Show proper error message
     }
   };
-
+ 
   return (
     <div className="auth-container">
       <h4>{userType} Signup</h4>
@@ -46,5 +46,5 @@ const SignUpPage = ({ userType }) => {
     </div>
   );
 };
-
+ 
 export default SignUpPage;

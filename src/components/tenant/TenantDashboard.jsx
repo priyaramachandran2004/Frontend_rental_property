@@ -68,13 +68,14 @@ const TenantDashboard = () => {
     <div className="dashboard">
       <nav className={`sidebar ${isSidebarOpen ? 'open' : 'closed'}`}>
         <div className="sidebar-header">
-        
-          <h2>Tenant Portal</h2>
-          <button 
+        <div><button 
             className="toggle-button"
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           ><FaBars />
           </button>
+          </div>
+          <div> <h2>Tenant Portal</h2>
+          </div>
             
         </div>
         <div className="nav-links">

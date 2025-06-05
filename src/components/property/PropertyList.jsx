@@ -116,11 +116,13 @@ function PropertyList({tenantId}) {
     const fetchProperties = async () => {
       try {
         const response = await axios.get("http://localhost:8084/api/properties");
-        // Just add images to properties without filtering
-        const propertiesWithImages = response.data.map((property, index) => ({
-          ...property,
-          photo: imagePaths[index % imagePaths.length],
-        }));
+        // Filter available properties and add images
+        const propertiesWithImages = response.data
+          .filter(property => property.availabilityStatus === true)
+          .map((property, index) => ({
+            ...property,
+            photo: imagePaths[index % imagePaths.length],
+          }));
         setProperties(propertiesWithImages);
         setLoading(false);
       } catch (error) {

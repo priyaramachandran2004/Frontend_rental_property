@@ -175,15 +175,23 @@ const LeaseForm = () => {
     };
 
     fetchData();
-  }, [propertyId, tenantId]);
+  }, [propertyId, tenantId, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const totalRentAmount = leaseData.rentAmount * leaseData.duration;
+      
+      // Create lease
       const leaseResponse = await axios.post("http://localhost:8085/api/leases", {
         ...leaseData,
         rentAmount: totalRentAmount,
+      });
+
+      // Update property availability
+      await axios.put(`http://localhost:8084/api/properties/${propertyId}`, {
+        ...property,
+        availabilityStatus: false
       });
 
       navigate('/payment', {
@@ -203,16 +211,6 @@ const LeaseForm = () => {
   if (loading) {
     return <div className="loader">Loading...</div>;
   }
-  const handleDurationChange = (e) => {
-    const duration = parseInt(e.target.value) || 0;
-    const calculatedTotal = duration * leaseData.rentAmount;
-    
-    setLeaseData(prev => ({
-      ...prev,
-      duration: duration
-    }));
-    setTotalAmount(calculatedTotal);
-  };
 
   return (
     <div className="lease-form">

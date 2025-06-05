@@ -110,7 +110,7 @@ const LoginForm = ({ userType }) => {
         onChange={(e) => setPassword(e.target.value)}
         required
       />
-      <button onClick={handleLogin}>Login</button>
+      <button onClick={handleLogin} className="submit-button">Login</button>
       {error && <p className="error-message">{error}</p>}
     </div>
   );
