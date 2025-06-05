@@ -32,8 +32,10 @@ const History = ({ ownerId }) => {
                     axios.get(`http://localhost:8086/api/payments/lease/${lease.leaseId}`)
                   ]);
 
-                  // Process payment data
-                  const paymentData = paymentResponse.data;
+                  // Process payment data - extract first payment from array
+                  const paymentData = Array.isArray(paymentResponse.data) ? 
+                    paymentResponse.data[0] : paymentResponse.data;
+                  
                   console.log('Payment data for lease', lease.leaseId, ':', paymentData);
 
                   return {
@@ -47,7 +49,7 @@ const History = ({ ownerId }) => {
                   return {
                     lease,
                     property,
-                    tenant: null,
+                    tenant: tenantResponse.data,
                     payment: null
                   };
                 }
@@ -130,25 +132,29 @@ const History = ({ ownerId }) => {
                     <Typography>💵 Total Amount: ₹{item.lease.rentAmount}</Typography>
                   </div>
 
-                  {item.payment && (
-                    <div className="info-section">
-                      <Typography variant="subtitle1" className="section-title">
-                        Payment Details
-                      </Typography>
-                      <Typography>
-                        🔖 Payment ID: {item.payment.paymentId || 'N/A'}
-                      </Typography>
-                      <Typography>
-                        💳 Payment Mode: {item.payment.paymentMode || 'N/A'}
-                      </Typography>
-                      <Typography>
-                        📆 Payment Date: {formatDate(item.payment.paymentDate)}
-                      </Typography>
-                      <Typography>
-                        💰 Amount Paid: ₹{item.payment.amount || 'N/A'}
-                      </Typography>
-                    </div>
-                  )}
+                  <div className="info-section">
+                    <Typography variant="subtitle1" className="section-title">
+                      Payment Details
+                    </Typography>
+                    {item.payment ? (
+                      <>
+                        <Typography>
+                          🔖 Payment ID: {item.payment.paymentId}
+                        </Typography>
+                        <Typography>
+                          💳 Payment Mode: {item.payment.paymentMode}
+                        </Typography>
+                        <Typography>
+                          📆 Payment Date: {formatDate(item.payment.paymentDate)}
+                        </Typography>
+                        <Typography>
+                          💰 Amount Paid: ₹{item.payment.amount?.toLocaleString('en-IN')}
+                        </Typography>
+                      </>
+                    ) : (
+                      <Typography>No payment details available</Typography>
+                    )}
+                  </div>
 
                   <div className="info-section">
                     <Typography variant="subtitle1" className="section-title">
