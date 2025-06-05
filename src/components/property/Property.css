@@ -38,11 +38,7 @@
   overflow-y: auto; /* Add vertical scrolling if content overflows */
 }
 
-.property-title {
-  white-space: normal; /* Allow text wrapping */
-  overflow: visible; /* Ensure text is fully visible */
-  text-overflow: unset; /* Remove ellipsis */
-}
+
 
 .button-container {
   width: 100%; /* Full width of the card */

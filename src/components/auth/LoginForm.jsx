@@ -77,7 +77,7 @@ const LoginForm = ({ userType }) => {
       if (response.data.email === email && response.data.password === password) {
         if (userType === "Owner") {
           sessionStorage.setItem('ownerId', response.data.ownerId.toString());
-          navigate(`/owner-dashboard/${response.data.ownerId}`);
+          navigate(`/owner-dashboard`);
         } else {
           const tenantId = response.data.tenantId.toString();
           console.log("Storing tenantId:", tenantId);

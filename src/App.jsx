@@ -55,6 +55,14 @@ const App = () => {
             <TenantDashboard />
           </PrivateRoute>
         } />
+         <Route 
+    path="/owner-dashboard" 
+    element={
+      <PrivateRoute userType="owner">
+        <OwnerDashboard />
+      </PrivateRoute>
+    } 
+  />
         <Route path="/lease-form" element={
           <PrivateRoute>
             <LeaseForm />

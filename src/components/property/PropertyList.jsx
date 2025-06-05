@@ -165,7 +165,7 @@ function PropertyList({tenantId}) {
                   />
                 </div>
                 <div className="content-container">
-                  <Typography variant="h6" className="property-title">
+                  <Typography variant="h6" color="textSecondary" >
                     {property.description}
                   </Typography>
                   <Typography variant="body2" color="textSecondary">
